@@ -1,0 +1,2 @@
+@reboot sleep 30 && sudo journalctl --vacuum-time=2days' >> crontab -e
+@reboot sleep 30 && find /var/log/journal -ctime +40 -exec rm -f {} \;'
