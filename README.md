@@ -6,7 +6,7 @@ This guide is to configure a debian based development environment using Ruby on 
 Visit https://extensions.gnome.org, and install the bowser extension.
 Install:
 - Blur my Shell
-- Dah to Dock
+- Dash to Dock
 
 ## Missing drivers
 In case of missing drivers, try:
@@ -36,12 +36,13 @@ eval "$(ssh-agent -s)"
 `ssh-keygen -t ed25519`
 
 ## Install Zsh shell
-`.~/github/as-consult/setp/install-zsh_1_2.sh`
+`~/github/as-consult/setup/install-zsh_1_2.sh`
 reboot computer
-`.~/github/as-consult/setp/install-zsh_2_2.sh`
+`~/github/as-consult/setup/install-zsh_2_2.sh`
+reboot terminal
 
 ## Install required packages and setups
-`.~/github/as-consult/setup/install-packages.sh`
+`~/github/as-consult/setup/install-packages.sh`
 
 ## Additional setup
 ### Postgresql credentials
@@ -52,10 +53,12 @@ sudo chmod 600 ~/.pgpass
 ````
 
 ## Install Rbenv
-`.~/github/as-consult/setup/rbenv_install_1_2.sh`
+`~/github/as-consult/setup/rbenv_install_1_2.sh`
 relaunch terminal
-`.~/github/as-consult/setup/rbenv_install_2_2.sh`
+`~/github/as-consult/setup/rbenv_install_2_2.sh`
 
+## Activate Vim plugins
+Launch vim and enter: :PlugInstall
 
 
 

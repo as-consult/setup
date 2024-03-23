@@ -12,8 +12,7 @@
 echo "####################################################################"
 echo "----------- Installation General Packages"
 echo "####################################################################"
-sudo apt install -y vim vim-gtk3 lynx tree gimp imagemagick libaio1 hardinfo vlc traceroute heif-gdk-pixbuf heif-thumbnailer libheif1:amd64 inkscape exfat-fuse virtualbox virtualbox-ext-pack qalc gpick exiv2 gnome-clocks libavcodec-extra easytag figlet nautilus-wipe nautilus-sendto nautilus-gtkhash mat2 kleopatra testdisk pdftk ttf-mscorefonts-installer simplescreenrecorder neofetch qrencode xournal
-#sudo apt install -y dropbox nautlus-dropbox libreoffice-base libreoffice-report-builder libreoffice-base-drivers
+sudo apt install -y vim vim-gtk3 lynx tree gimp imagemagick libaio1 hardinfo vlc traceroute heif-gdk-pixbuf heif-thumbnailer libheif1:amd64 inkscape exfat-fuse qalc gpick exiv2 gnome-clocks libavcodec-extra easytag figlet mat2 kleopatra testdisk pdftk simplescreenrecorder neofetch qrencode xournal
 # figlet    = big text generator
 # mat2      = metadata removal
 # testdisk  = recovery tool
@@ -171,9 +170,6 @@ sleep 2
 echo "------------- Setup crontab -e"
 crontab ~/SynologyDrive/alex/scripts/crontab_purge  #To purge logs
 sleep 2
-
-echo "------------- Setup virtualbox groups to current user"
-sudo adduser $USER vboxusers
 
 echo "####################################################################"
 echo "-----------  APT Clean"
