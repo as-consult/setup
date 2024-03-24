@@ -12,7 +12,7 @@
 echo "####################################################################"
 echo "----------- Installation General Packages"
 echo "####################################################################"
-sudo apt install -y vim vim-gtk3 lynx tree gimp imagemagick libaio1 hardinfo vlc traceroute heif-gdk-pixbuf heif-thumbnailer libheif1:amd64 inkscape exfat-fuse qalc gpick exiv2 gnome-clocks libavcodec-extra easytag figlet mat2 kleopatra testdisk pdftk simplescreenrecorder neofetch qrencode xournal
+sudo apt install -y vim vim-gtk3 lynx tree gimp imagemagick libaio1 hardinfo vlc traceroute heif-gdk-pixbuf heif-thumbnailer libheif1:amd64 inkscape exfat-fuse qalc gpick exiv2 gnome-clocks libavcodec-extra easytag figlet mat2 kleopatra testdisk pdftk simplescreenrecorder neofetch qrencode xournal thunderbird
 # figlet    = big text generator
 # mat2      = metadata removal
 # testdisk  = recovery tool
