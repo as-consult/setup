@@ -22,6 +22,11 @@ sudo apt install -y vim vim-gtk3 lynx tree gimp imagemagick libaio1 hardinfo vlc
 echo -e ">>>>>>>>>> End of General Packages Installation\n"
 sleep 2
 
+echo "####################################################################"
+echo "----------- Uninstall General Packages"
+echo "####################################################################"
+sudo apt autoremove evolution
+
 # Packages for work
 echo "####################################################################"
 echo "------------- Install of Work Packages"
