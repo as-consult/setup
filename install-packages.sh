@@ -168,7 +168,7 @@ git config --global pull.ff only
 sleep 2
 
 echo "------------- Setup crontab -e"
-crontab ~/SynologyDrive/alex/scripts/crontab_purge  #To purge logs
+crontab ~/github/as-consult/setup/crontab_purge  #To purge logs
 sleep 2
 
 echo "####################################################################"
