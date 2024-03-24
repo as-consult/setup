@@ -60,6 +60,9 @@ relaunch terminal
 ## Activate Vim plugins
 Launch vim and enter: :PlugInstall
 
+## gitconfig
+`cp ~/github/as-consult/setup/gitconfig ~/.gitconfig`
+
 
 
 
