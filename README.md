@@ -8,6 +8,9 @@ Install:
 - Blur my Shell
 - Dash to Dock
 
+Bring minimize buttons back:
+`gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close"`
+
 ## Missing drivers
 In case of missing drivers, try:
 ````bash
