@@ -159,7 +159,7 @@ echo 'alias system="inxi -Fxxxxzr"' >> ~/.zshrc
 echo 'alias mint="neofetch"' >> ~/.zshrc
 echo "alias lynx-ddg='lynx www.duckduckgo.com'" >> ~/.zshrc
 echo 'alias open='nautilus'' >> ~/.zshrc
-echo 'alias r-grep="grep -rin --exclude-dir={tmp,log}"'
+echo 'alias r-grep="grep -rin --exclude-dir={tmp,log}"'  >> ~/.zshrc
 sleep 2
 
 echo "------------- Setup environment variables"
