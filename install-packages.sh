@@ -31,7 +31,7 @@ sudo apt autoremove evolution
 echo "####################################################################"
 echo "------------- Install of Work Packages"
 echo "####################################################################"
-sudo apt install -y cifs-utils nautilus-nextcloud nextcloud-desktop
+sudo apt install -y cifs-utils nautilus-nextcloud nextcloud-desktop openvpn network-manager-openvpn-gnome
 echo -e ">>>>>>>>>> End of Work Packages Installation\n"
 sleep 2
 
