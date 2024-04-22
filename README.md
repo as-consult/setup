@@ -49,7 +49,7 @@ reboot terminal
 
 ## Additional setup
 ### Postgresql credentials
-Create your postgres credentials in your home:
+Create your postgres credentials in your home directory:
 ````bash
 touch ~/.pgpass
 sudo chmod 600 ~/.pgpass
