@@ -9,6 +9,7 @@ set showmatch
 set hlsearch
 set encoding=utf-8
 set colorcolumn=80
+set wildmenu
 syntax on
 
 "security options
@@ -39,13 +40,15 @@ let mapleader = " "
 "inoremap = insert mode
 "vnoremap = visual mode
 "cnoremap = command (colon) mode
-nnoremap <leader>t :NERDTree<CR>
+nnoremap <leader>t :NERDTreeToggle<cr>
 nnoremap <leader>y "+yy
 nnoremap <leader>p "+p
-nnoremap <leader>s :setlocal spell spelllang=en_us<CR>
-nnoremap <leader>dt :put=strftime('%Y-%m-%d %H:%M')<CR>
+nnoremap <leader>s :setlocal spell spelllang=en_us<cr>
+nnoremap <leader>dt :put=strftime('%Y-%m-%d %H:%M')<cr>
 nnoremap <leader>ic i<% %><Esc>hh
 nnoremap <leader>m vat
+"nnoremap <leader>l <esc>:Lex<cr>:vertical resize 30<cr>
+nnoremap <leader>l <esc>:Lex<cr>
 
 "plugins manager vim-plug
 call plug#begin('~/.vim/plugged')
