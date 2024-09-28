@@ -6,13 +6,13 @@
 # /_/   \_\____/ 
 #
 # Date:	   23/03/2024
-# Update:  23/03/2024
-# Title: Installation script after ebian 12 fresh install 
+# Update:  02/06/2024
+# Title: Installation script after Debian 12 fresh install for Devs
 
 echo "####################################################################"
 echo "----------- Installation General Packages"
 echo "####################################################################"
-sudo apt install -y vim vim-gtk3 lynx tree gimp imagemagick libaio1 hardinfo vlc traceroute heif-gdk-pixbuf heif-thumbnailer libheif1:amd64 inkscape exfat-fuse qalc gpick exiv2 gnome-clocks libavcodec-extra easytag figlet mat2 kleopatra testdisk pdftk simplescreenrecorder neofetch qrencode xournal thunderbird font-manager
+sudo apt install -y vim vim-gtk3 tree gimp imagemagick libaio1 hardinfo  heif-gdk-pixbuf heif-thumbnailer libheif1:amd64 inkscape exfat-fuse gpick exiv2 libavcodec-extra easytag figlet mat2 kleopatra testdisk pdftk simplescreenrecorder neofetch qrencode font-manager xournal cifs-utils nautilus-nextcloud nextcloud-desktop openvpn network-manager-openvpn-gnome
 # figlet    = big text generator
 # mat2      = metadata removal
 # testdisk  = recovery tool
@@ -25,25 +25,11 @@ sleep 2
 echo "####################################################################"
 echo "----------- Uninstall General Packages"
 echo "####################################################################"
-sudo apt autoremove evolution
-
-# Packages for work
-echo "####################################################################"
-echo "------------- Install of Work Packages"
-echo "####################################################################"
-sudo apt install -y cifs-utils nautilus-nextcloud nextcloud-desktop openvpn network-manager-openvpn-gnome
-echo -e ">>>>>>>>>> End of Work Packages Installation\n"
-sleep 2
+sudo apt autoremove thunderbird
 
 echo "####################################################################"
 echo "-----------  Third Party Installations"
 echo "####################################################################"
-
-# CherryTree
-echo "------------- Install CherryTree"
-sudo add-apt-repository ppa:giuspen/ppa
-sudo apt update && sudo apt install -y cherrytree
-sleep 2
 
 # DBeaver
 echo "------------- Install DBeaver"
@@ -52,27 +38,11 @@ wget "https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb"
 sudo dpkg -i dbeaver-ce_latest_amd64.deb
 sleep 2
 
-# AppImageLauncher
-echo "------------- Install AppImageLauncher"
-sudo apt install software-properties-common
-sudo add-apt-repository ppa:appimagelauncher-team/stable
-sudo apt update
-sudo apt install -y appimagelauncher
-sleep 2
-
 # QGIS Installation
 echo "------------- Install QGIS"
 sudo apt-get install python-software-properties
 sudo add-apt-repository ppa:ubuntugis/ppa
 sudo apt update && apt install qgis qgis-plugin-grass
-sleep 2
-
-echo "------------- Install Brave Browser"
-sudo apt install curl
-sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-sudo apt update
-sudo apt install brave-browser
 sleep 2
 
 echo -e ">>>>>>>>>> End of Third Party Installations\n"
@@ -109,19 +79,16 @@ sleep 2
 echo "####################################################################"
 echo "------------- Install of Hacking Packages"
 echo "####################################################################"
-sudo apt install -y net-tools whois nmap
+sudo apt install -y net-tools whois nmap traceroute
 echo -e ">>>>>>>>>> End of hacking Packages Installation\n"
 sleep 2
 
 echo "####################################################################"
 echo "------------- Configuration Files"
 echo "####################################################################"
-echo "------------- Setup Lynx"
-sudo chmod 777 /etc/lynx/lynx.cfg
-sudo echo 'ACCEPT_ALL_COOKIES:TRUE' >> /etc/lynx/lynx.cfg
 
 echo "------------- Setup vim"
-ln -s ~/github/as-consult/vimrc ~/.vimrc
+ln -s ~/github/as-consult/setup/vimrc ~/.vimrc
 mkdir -p ~/.vim/spell
 mkdir -p ~/.vim/plugged
 cd ~/.vim/spell
@@ -136,28 +103,12 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 sleep 2
 
-echo "------------- Setup Firewall"
-sudo ufw app list
-sudo ufw default allow outgoing
-sudo ufw allow http
-sudo ufw allow https
-sudo ufw allow ssh
-sudo ufw allow imaps
-sudo ufw allow smtp
-sudo ufw allow ipp    #printers
-sudo ufw allow postgresql
-sudo ufw enable
-sudo ufw status
-
 echo "------------- Setup Aliases"
 echo "# Aliases" >> ~/.zshrc
-echo "alias meteo='curl wttr.in'" >> ~/.zshrc
 echo 'alias e='exit'' >> ~/.zshrc
 echo 'alias c='clear'' >> ~/.zshrc
 echo 'alias myip="curl https://ipinfo.io/json"' >> ~/.zshrc
 echo 'alias system="inxi -Fxxxxzr"' >> ~/.zshrc
-echo 'alias mint="neofetch"' >> ~/.zshrc
-echo "alias lynx-ddg='lynx www.duckduckgo.com'" >> ~/.zshrc
 echo 'alias open='nautilus'' >> ~/.zshrc
 echo 'alias r-grep="grep -rin --exclude-dir={tmp,log}"'  >> ~/.zshrc
 sleep 2
@@ -170,10 +121,6 @@ sleep 2
 echo "------------- Setup Git config"
 cp ~/github/as-consult/gitconfig ~/.gitconfig
 git config --global pull.ff only
-sleep 2
-
-echo "------------- Setup crontab -e"
-crontab ~/github/as-consult/setup/crontab_purge  #To purge logs
 sleep 2
 
 echo "####################################################################"
