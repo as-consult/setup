@@ -97,12 +97,11 @@ autoinstall:
     - curtin in-target -- chmod 777 /etc/lynx/lynx.cfg
     - curtin in-target -- echo 'ACCEPT_ALL_COOKIES:TRUE' >> /etc/lynx/lynx.cfg
     - curtin in-target -- chown alex:root /etc/hosts
-    - curtin in-target -- echo '192.168.77.16	nas-001' >> /etc/hosts
-    - curtin in-target -- echo '192.168.77.18	lap-001' >> /etc/hosts
-    - curtin in-target -- echo '192.168.77.19	mac-001' >> /etc/hosts
-    - curtin in-target -- echo '54.37.152.178  vps-001 #as-consult.io' >> /etc/hosts
-    - curtin in-target -- echo '51.210.106.100 vps-002 #nextcloud.sky-unlimited.lu' >> /etc/hosts
-    - curtin in-target -- echo '141.94.17.140  vps-003 #weekend-fly.com' >> /etc/hosts
+    - curtin in-target -- echo '192.168.77.16	 nas-001' >> /etc/hosts
+    - curtin in-target -- echo '192.168.77.19	 mac-001' >> /etc/hosts
+    - curtin in-target -- echo '54.37.152.178  vps-001' >> /etc/hosts
+    - curtin in-target -- echo '51.210.106.100 vps-002' >> /etc/hosts
+    - curtin in-target -- echo '141.94.17.140  vps-003' >> /etc/hosts
     - curtin in-target -- ufw default allow outgoing
     - curtin in-target -- ufw default deny incoming
     - curtin in-target -- ufw allow 80      #http
