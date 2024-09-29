@@ -31,7 +31,7 @@ autoinstall:
     - gimp
     - imagemagick
     - vlc
-    - inskape
+    - inkscape
     - qalc
     - gpick
     - exiv2
@@ -93,7 +93,7 @@ autoinstall:
     - curtin in-target -- systemctl enable libvirtd.service
     - curtin in-target -- systemctl start libvirtd.service
     - curtin in-target -- sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    - curtin in-target -- mkdir -p $HOME/Github $HOME/Apps $HOME/Git $HOME/VMs $HOME/Downloads
+    - curtin in-target -- mkdir -p /home/alex/Github /home/alex/Apps /home/alex/Git /home/alex/VMs /home/alex/Downloads
     - curtin in-target -- chmod 777 /etc/lynx/lynx.cfg
     - curtin in-target -- echo 'ACCEPT_ALL_COOKIES:TRUE' >> /etc/lynx/lynx.cfg
     - curtin in-target -- chown alex:root /etc/hosts
@@ -114,7 +114,7 @@ autoinstall:
     - curtin in-target -- ufw allow 5432    #postgresql
     - curtin in-target -- ufw allow 11194   #openvpn
     - curtin in-target -- ufw enable
-    - curtin in-target -- cd $HOME/Downloads && wget https://ftp.hp.com/pub/softlib/software13/printers/SS/SL-M4580FX/uld_V1.00.39_01.17.tar.gz 
+    - curtin in-target -- cd /home/alex/Downloads && wget https://ftp.hp.com/pub/softlib/software13/printers/SS/SL-M4580FX/uld_V1.00.39_01.17.tar.gz 
     - curtin in-target -- apt update && apt -y upgrade && apt autoclean && apt -y autoremove
     - curtin in-target -- sh -c "$(curl -fsSL https://raw.githubusercontent.com/as-consult/setup/main/post-install.sh)"
 # https://canonical-subiquity.readthedocs-hosted.com/en/latest/reference/autoinstall-reference.html
