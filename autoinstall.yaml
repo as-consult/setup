@@ -92,9 +92,8 @@ autoinstall:
   late-commands:
     - curtin in-target -- systemctl enable libvirtd.service
     - curtin in-target -- systemctl start libvirtd.service
-    - curtin in-target -- apt autoremove
     - curtin in-target -- sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    - curtin in-target -- mkdir ~/Github ~/Apps ~/Git ~/VMs
+    - curtin in-target -- mkdir -p $HOME/Github $HOME/Apps $HOME/Git $HOME/VMs $HOME/Downloads
     - curtin in-target -- chmod 777 /etc/lynx/lynx.cfg
     - curtin in-target -- echo 'ACCEPT_ALL_COOKIES:TRUE' >> /etc/lynx/lynx.cfg
     - curtin in-target -- chown alex:root /etc/hosts
@@ -106,16 +105,17 @@ autoinstall:
     - curtin in-target -- echo '141.94.17.140  vps-003 #weekend-fly.com' >> /etc/hosts
     - curtin in-target -- ufw default allow outgoing
     - curtin in-target -- ufw default deny incoming
-    - curtin in-target -- ufw allow http
-    - curtin in-target -- ufw allow https
-    - curtin in-target -- ufw allow ssh
-    - curtin in-target -- ufw allow imaps
-    - curtin in-target -- ufw allow smtp
-    - curtin in-target -- ufw allow ipp    #printers
-    - curtin in-target -- ufw allow 15001  #nas
-    - curtin in-target -- ufw allow 5432
-    - curtin in-target -- ufw allow openvpn
+    - curtin in-target -- ufw allow 80      #http
+    - curtin in-target -- ufw allow 443     #https
+    - curtin in-target -- ufw allow 22      #ssh
+    - curtin in-target -- ufw allow 993     #imaps
+    - curtin in-target -- ufw allow 25      #smtp
+    - curtin in-target -- ufw allow 631     #ipp printers
+    - curtin in-target -- ufw allow 15001   #nas
+    - curtin in-target -- ufw allow 5432    #postgresql
+    - curtin in-target -- ufw allow 11194   #openvpn
     - curtin in-target -- ufw enable
-    - curtin in-target -- cd ~/Downloads && wget https://ftp.hp.com/pub/softlib/software13/printers/SS/SL-M4580FX/uld_V1.00.39_01.17.tar.gz 
+    - curtin in-target -- cd $HOME/Downloads && wget https://ftp.hp.com/pub/softlib/software13/printers/SS/SL-M4580FX/uld_V1.00.39_01.17.tar.gz 
     - curtin in-target -- apt update && apt -y upgrade && apt autoclean && apt -y autoremove
+    - curtin in-target -- sh -c "$(curl -fsSL https://raw.githubusercontent.com/as-consult/setup/main/post-install.sh)"
 # https://canonical-subiquity.readthedocs-hosted.com/en/latest/reference/autoinstall-reference.html
