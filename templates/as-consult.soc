@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ooo:color-table xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:ooo="http://openoffice.org/2004/office">
+<draw:color draw:name="Rich Black FOGRA 29" draw:color="#001219"/>
+<draw:color draw:name="Blue Sapphire" draw:color="#005f73"/>
+<draw:color draw:name="Viridian Green" draw:color="#0a9396"/>
+<draw:color draw:name="Middle Blue Green" draw:color="#94d2bd"/>
+<draw:color draw:name="Medium Champagne" draw:color="#e9d8a6"/>
+<draw:color draw:name="Gamboge" draw:color="#ee9b00"/>
+<draw:color draw:name="Alloy Orange" draw:color="#ca6702"/>
+<draw:color draw:name="Mahogany" draw:color="#bb3e03"/>
+<draw:color draw:name="Rufous" draw:color="#ae2012"/>
+<draw:color draw:name="Ruby Red" draw:color="#9b2226"/>
+<draw:color draw:name="White" draw:color="#FFFFFF"/>
+</ooo:color-table>

@@ -6,7 +6,7 @@
 # /_/   \_\____/ 
 #
 # Date:	   30/09/2024
-# Update:  30/09/2024
+# Update:  08/10/2024
 # Title: Post installation script after Ubuntu-24.04.1-LTS fresh install
 # Download manually this file from https://github.com/as-consult/setup
 # make it executable and execute it.
@@ -14,7 +14,7 @@
 echo "####################################################################"
 echo "----------- Create directories and update/upgrade APT"
 echo "####################################################################"
-mkdir ~/Github ~/Apps ~/Git ~/VMs
+mkdir ~/github ~/apps ~/git ~/VMs
 sudo apt update && sudo apt -y upgrade
 
 echo "####################################################################"
@@ -26,7 +26,8 @@ sudo apt install -y git gh usb-creator-gtk python3-pip vim lynx tree gimp \
                     testdisk openscad librecad stellarium nextcloud-desktop \
                     nautilus-nextcloud qemu-system virt-manager bridge-utils \
                     zsh curl net-tools whois nmap traceroute transmission \
-                    metadata-cleaner timeshift pdftk postgresql-client
+                    metadata-cleaner timeshift pdftk postgresql-client \
+                    gnome-browser-connector vim-gtk3 simple-scan sqlite3
 # testdisk  = recovery tool
 # pdftk     = manage pdf (concat, ..) https://www.pdflabs.com/docs/pdftk-cli-examples/
 # qrencode  = generate a qr code, c.f. qrencode -o "wef" -s 6 -l H -m 2 "https://weekend-fly.com"
@@ -76,9 +77,9 @@ echo "------------- Configuration Files"
 echo "####################################################################"
 
 echo "------------- Setup vim"
-mkdir -p Github/as-consult && cd ~/Github/as-consult
+mkdir -p github/as-consult && cd ~/github/as-consult
 git clone https://github.com/as-consult/setup.git
-ln -s ~/Github/as-consult/setup/vimrc ~/.vimrc
+ln -s ~/github/as-consult/setup/vimrc ~/.vimrc
 mkdir -p ~/.vim/spell
 mkdir -p ~/.vim/plugged
 cd ~/.vim/spell
@@ -117,8 +118,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting
 sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="af-magic"/g' ~/.zshrc
 sed -i 's/plugins=(git)/plugins=(gitfast last-working-dir zsh-syntax-highlighting ssh-agent)/g' ~/.zshrc
 
-echo "------------- Setup Git config"
-ln -s ~/Github/as-consult/setup/gitconfig ~/.gitconfig
+echo "------------- Setup git config"
+ln -s ~/github/as-consult/setup/gitconfig ~/.gitconfig
 git config --global pull.ff only
 sleep 2
 
@@ -159,14 +160,56 @@ sudo ufw enable
 sleep 2
 
 echo "------------- Setup crontab -e"
-crontab ~/Github/as-consult/setup/crontab_purge  #To purge logs
+crontab ~/github/as-consult/setup/crontab_purge  #To purge logs
 sleep 2
 
 echo "------------- Download Samsung SCX-470 Drivers"
 cd ~/Downloads && wget https://ftp.hp.com/pub/softlib/software13/printers/SS/SL-M4580FX/uld_V1.00.39_01.17.tar.gz 
+
+echo "------------- Install templates"
+mkdir -p ~/snap/libreoffice/current/.config/libreoffice/4/user/config
+mkdir -p ~/.config/inkscape/palettes
+ln -s ~/github/as-consult/setup/templates/as-consult.soc ~/snap/libreoffice/current/.config/libreoffice/4/user/config/as-consult.soc
+ln -s ~/github/as-consult/setup/templates/wef_2023.soc ~/snap/libreoffice/current/.config/libreoffice/4/user/config/wef_2023.soc
+ln -s ~/github/as-consult/setup/templates/sky-unlimited.soc ~/snap/libreoffice/current/.config/libreoffice/4/user/config/wef_2023.soc
+ln -s ~/github/as-consult/setup/templates/as-consult.gpl ~/.config/inkscape/palettes/as-consult.gpl
+ln -s ~/github/as-consult/setup/templates/wef_2023.gpl ~/.config/inkscape/palettes/wef_2023.gpl
+ln -s ~/github/as-consult/setup/templates/sky-unlimited.gpl ~/.config/inkscape/palettes/sky-unlimited.gpl
 
 echo "####################################################################"
 echo "-----------  APT Clean"
 echo "####################################################################"
 sudo apt update && sudo apt -y upgrade && sudo apt autoclean && \
 sudo apt -y autoremove
+
+########################################################################
+# Things to do after install !!!
+########################################################################
+# Ethernet Card Tuxedo
+  # MEDIATEK Corp device 0688
+  # Kernel Driver in use: mt7921e
+# Launch :PlugInstall in vim
+# Configure Printers
+  # Home Printer
+	  # sudo vim /etc/sane.d/xerox_mfp.conf
+	  # Remplacer sous l'imprimante Samsung SCX-470 le usb par: tcp 192.168.77.21
+    # Printers / add
+    # Network printer / LPD/LPR / 192.168.77.21
+    # Search for a printer driver to download -> Samsung scx
+  # Work Printer
+    # sudo dpkg -i /home/alex/SynologyDrive/alex/driver/cque-en-4.0-11.x86_64.deb
+    # add printer: socket://192.168.128.250:9100
+    # Canon iR-ADV-C3525/3550 PCL
+# dns nameservers
+  # Add one of following servers in network setup
+  # FDN:      80.67.169.12,80.67.169.40
+  # OPENDNS:  208.67.222.222,208.67.220.220
+# Configure Synology VPN
+# Install tor
+  # https://www.torproject.org/download/
+  # Extract into ~/apps
+  # ./start-tor-browser.desktop --register-app
+# Inskape
+  # Preferences/Themes/Icon Theme: Multicolor
+# DisplayLink for docking station
+  # https://github.com/AdnanHodzic/displaylink-debian
