@@ -14,7 +14,7 @@
 echo "####################################################################"
 echo "----------- Create directories and update/upgrade APT"
 echo "####################################################################"
-mkdir ~/github ~/apps ~/git ~/VMs
+mkdir ~/github ~/apps ~/VMs
 sudo apt update && sudo apt -y upgrade
 
 echo "####################################################################"
@@ -79,7 +79,7 @@ echo "####################################################################"
 echo "------------- Setup vim"
 mkdir -p github/as-consult && cd ~/github/as-consult
 git clone https://github.com/as-consult/setup.git
-ln -s ~/github/as-consult/setup/vimrc ~/.vimrc
+ln -s ~/github/as-consult/setup/config/vimrc ~/.vimrc
 mkdir -p ~/.vim/spell
 mkdir -p ~/.vim/plugged
 cd ~/.vim/spell
@@ -119,7 +119,7 @@ sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="af-magic"/g' ~/.zshrc
 sed -i 's/plugins=(git)/plugins=(gitfast last-working-dir zsh-syntax-highlighting ssh-agent)/g' ~/.zshrc
 
 echo "------------- Setup git config"
-ln -s ~/github/as-consult/setup/gitconfig ~/.gitconfig
+ln -s ~/github/as-consult/setup/config/gitconfig ~/.gitconfig
 git config --global pull.ff only
 sleep 2
 
@@ -160,21 +160,28 @@ sudo ufw enable
 sleep 2
 
 echo "------------- Setup crontab -e"
-crontab ~/github/as-consult/setup/crontab_purge  #To purge logs
+crontab ~/github/as-consult/setup/config/crontab_purge  #To purge logs
 sleep 2
 
 echo "------------- Download Samsung SCX-470 Drivers"
 cd ~/Downloads && wget https://ftp.hp.com/pub/softlib/software13/printers/SS/SL-M4580FX/uld_V1.00.39_01.17.tar.gz 
 
 echo "------------- Install templates"
+# Ensure directories exists
 mkdir -p ~/snap/libreoffice/current/.config/libreoffice/4/user/config
 mkdir -p ~/.config/inkscape/palettes
-ln -s ~/github/as-consult/setup/templates/as-consult.soc ~/snap/libreoffice/current/.config/libreoffice/4/user/config/as-consult.soc
-ln -s ~/github/as-consult/setup/templates/wef_2023.soc ~/snap/libreoffice/current/.config/libreoffice/4/user/config/wef_2023.soc
-ln -s ~/github/as-consult/setup/templates/sky-unlimited.soc ~/snap/libreoffice/current/.config/libreoffice/4/user/config/wef_2023.soc
+mkdir -p ~/Templates
+# Inkscape
 ln -s ~/github/as-consult/setup/templates/as-consult.gpl ~/.config/inkscape/palettes/as-consult.gpl
 ln -s ~/github/as-consult/setup/templates/wef_2023.gpl ~/.config/inkscape/palettes/wef_2023.gpl
 ln -s ~/github/as-consult/setup/templates/sky-unlimited.gpl ~/.config/inkscape/palettes/sky-unlimited.gpl
+ln -s ~/github/as-consult/setup/templates/as-consult.soc ~/snap/libreoffice/current/.config/libreoffice/4/user/config/as-consult.soc
+# Libreoffice color schemes
+ln -s ~/github/as-consult/setup/templates/wef_2023.soc ~/snap/libreoffice/current/.config/libreoffice/4/user/config/wef_2023.soc
+ln -s ~/github/as-consult/setup/templates/sky-unlimited.soc ~/snap/libreoffice/current/.config/libreoffice/4/user/config/wef_2023.soc
+# Libreoffice Templates
+ln -s ~/github/as-consult/setup/templates/SKUN-L.ott ~/Templates/SKUN-L.ott
+ln -s ~/github/as-consult/setup/templates/SKUN-P.ott ~/Templates/SKUN-P.ott
 
 echo "####################################################################"
 echo "-----------  APT Clean"
