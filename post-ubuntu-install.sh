@@ -76,9 +76,10 @@ echo "####################################################################"
 echo "------------- Configuration Files"
 echo "####################################################################"
 
-echo "------------- Setup vim"
-mkdir -p github/as-consult && cd ~/github/as-consult
+echo "------------- Clone github/as-consult/setup repo"
+mkdir -p ~/github/as-consult && cd ~/github/as-consult
 git clone https://github.com/as-consult/setup.git
+echo "------------- Setup vim"
 ln -s ~/github/as-consult/setup/config/vimrc ~/.vimrc
 mkdir -p ~/.vim/spell
 mkdir -p ~/.vim/plugged
@@ -111,7 +112,8 @@ echo 'alias r-grep="grep -rin --exclude-dir={tmp,log}"'  >> ~/.zshrc
 sleep 2
 
 echo "------------- Setup oh-my-zsh plugin"
-cd $ZSH/plugins
+mkdir -p ~/.oh-my-zsh/plugins
+cd ~/.oh-my-zsh/plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting
 
@@ -171,14 +173,17 @@ echo "------------- Install templates"
 mkdir -p ~/snap/libreoffice/current/.config/libreoffice/4/user/config
 mkdir -p ~/.config/inkscape/palettes
 mkdir -p ~/Templates
+# Variables
+libreoffice_folder=~/snap/libreoffice/current/.config/libreoffice/4/user/config
+inkscape_folder=~/.config/inkscape/palettes
 # Inkscape
-ln -s ~/github/as-consult/setup/templates/as-consult.gpl ~/.config/inkscape/palettes/as-consult.gpl
-ln -s ~/github/as-consult/setup/templates/wef_2023.gpl ~/.config/inkscape/palettes/wef_2023.gpl
-ln -s ~/github/as-consult/setup/templates/sky-unlimited.gpl ~/.config/inkscape/palettes/sky-unlimited.gpl
-ln -s ~/github/as-consult/setup/templates/as-consult.soc ~/snap/libreoffice/current/.config/libreoffice/4/user/config/as-consult.soc
+ln -s ~/github/as-consult/setup/templates/as-consult.gpl $inkscape_folder/as-consult
+ln -s ~/github/as-consult/setup/templates/wef_2023.gpl $inkscape_folder/wef_2023.gpl
+ln -s ~/github/as-consult/setup/templates/sky-unlimited.gpl $inkscape_folder/sky-unlimited.gpl
 # Libreoffice color schemes
-ln -s ~/github/as-consult/setup/templates/wef_2023.soc ~/snap/libreoffice/current/.config/libreoffice/4/user/config/wef_2023.soc
-ln -s ~/github/as-consult/setup/templates/sky-unlimited.soc ~/snap/libreoffice/current/.config/libreoffice/4/user/config/wef_2023.soc
+ln -s ~/github/as-consult/setup/templates/as-consult.soc $libreoffice_folder/as-consult.soc
+ln -s ~/github/as-consult/setup/templates/wef_2023.soc $libreoffice_folder/wef_2023.soc
+ln -s ~/github/as-consult/setup/templates/sky-unlimited.soc $libreoffice_folder/wef_2023.soc
 # Libreoffice Templates
 ln -s ~/github/as-consult/setup/templates/SKUN-L.ott ~/Templates/SKUN-L.ott
 ln -s ~/github/as-consult/setup/templates/SKUN-P.ott ~/Templates/SKUN-P.ott
