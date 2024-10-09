@@ -186,7 +186,7 @@ ln -s ~/github/as-consult/setup/templates/wef_2023.soc $libreoffice_folder/wef_2
 ln -s ~/github/as-consult/setup/templates/sky-unlimited.soc $libreoffice_folder/wef_2023.soc
 # Libreoffice Templates
 ln -s ~/github/as-consult/setup/templates/SKUN-L.ott ~/Templates/SKUN-L.ott
-ln -s ~/github/as-consult/setup/templates/SKUN-P.ott ~/Templates/SKUN-P.ott
+ln -s ~/github/as-consult/setup/templates/SKUN-P.otp ~/Templates/SKUN-P.otp
 
 echo "####################################################################"
 echo "-----------  APT Clean"
