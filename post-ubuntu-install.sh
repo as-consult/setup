@@ -109,9 +109,9 @@ echo "# Aliases" >> ~/.zshrc
 echo 'alias e='exit'' >> ~/.zshrc
 echo 'alias myip="curl https://ipinfo.io/json"' >> ~/.zshrc
 echo 'alias r-grep="grep -rin --exclude-dir={tmp,log}"'  >> ~/.zshrc
-echo 'alias docked-rails-console="docker exec -it rails console"'  >> ~/.zshrc
-echo 'alias docked-rails-test="docker exec -it rails test"'  >> ~/.zshrc
-echo 'alias docked-rails-bash="docker exec -it bash"'  >> ~/.zshrc
+echo 'alias docked-rails-console="docker exec -it wef-app rails console"'  >> ~/.zshrc
+echo 'alias docked-rails-test="docker exec -it wef-app rails test"'  >> ~/.zshrc
+echo 'alias docked-rails-bash="docker exec -it wef-app bash"'  >> ~/.zshrc
 sleep 2
 
 echo "------------- Setup oh-my-zsh plugin"
