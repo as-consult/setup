@@ -37,7 +37,7 @@ sleep 2
 echo "####################################################################"
 echo "-----------  Install SNAP Packages"
 echo "####################################################################"
-sudo snap install postman thunderbird brave cherrytree dbeaver-ce projectlibre \
+sudo snap install postman thunderbird brave cherrytree projectlibre \
                   cups marble torrhunt signal-desktop podcasts slack
 sleep 2
 
