@@ -110,9 +110,9 @@ echo "# Aliases" >> ~/.zshrc
 echo 'alias e='exit'' >> ~/.zshrc
 echo 'alias myip="curl https://ipinfo.io/json"' >> ~/.zshrc
 echo 'alias r-grep="grep -rin --exclude-dir={tmp,log}"'  >> ~/.zshrc
-echo 'alias docked-rails-console="docker exec -it wef-app rails console"'  >> ~/.zshrc
-echo 'alias docked-rails-test="docker exec -it wef-app rails test"'  >> ~/.zshrc
-echo 'alias docked-rails-bash="docker exec -it wef-app bash"'  >> ~/.zshrc
+echo 'alias docked-rails-console="docker compose exec -it rails-app rails console"'  >> ~/.zshrc
+echo 'alias docked-rails-test="docker compose exec -it rails-app rails test"'  >> ~/.zshrc
+echo 'alias docked-rails-bash="docker compose exec -it rails-app bash"'  >> ~/.zshrc
 sleep 2
 
 echo "------------- Setup oh-my-zsh plugin"
@@ -158,10 +158,6 @@ sudo ufw allow 443     #https
 sudo ufw allow 22      #ssh
 sudo ufw allow 993     #imaps
 sudo ufw allow 25      #smtp
-sudo ufw allow 631     #ipp printers
-sudo ufw allow 15001   #nas
-sudo ufw allow 5432    #postgresql
-sudo ufw allow 11194   #openvpn
 sudo ufw enable
 sleep 2
 
