@@ -40,6 +40,7 @@ echo "-----------  Install SNAP Packages"
 echo "####################################################################"
 sudo snap install postman thunderbird brave cherrytree projectlibre \
                   cups marble torrhunt signal-desktop podcasts slack
+sudo snap install obsidian --classic
 sleep 2
 
 echo "####################################################################"
