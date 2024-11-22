@@ -110,7 +110,7 @@ echo "------------- Setup Aliases"
 echo "# Aliases" >> ~/.zshrc
 echo 'alias e='exit'' >> ~/.zshrc
 echo 'alias myip="curl https://ipinfo.io/json"' >> ~/.zshrc
-echo 'alias r-grep="grep -rin --exclude-dir={tmp,log}"'  >> ~/.zshrc
+echo 'alias r-grep="grep -rin --exclude-dir={tmp,log,ourairports-data}"'  >> ~/.zshrc
 echo 'alias docked-rails-console="docker compose exec --user 1000 -it rails-app rails console"'  >> ~/.zshrc
 echo 'alias docked-rails-test="docker compose exec --user 1000 -it rails-app rails test"'  >> ~/.zshrc
 echo 'alias docked-rails-bash="docker compose exec --user 1000 -it rails-app bash"'  >> ~/.zshrc
@@ -188,6 +188,12 @@ ln -s ~/github/as-consult/setup/templates/sky-unlimited.soc $libreoffice_folder/
 # Libreoffice Templates
 ln -s ~/github/as-consult/setup/templates/SKUN-L.ott ~/Templates/SKUN-L.ott
 ln -s ~/github/as-consult/setup/templates/SKUN-P.otp ~/Templates/SKUN-P.otp
+
+echo "####################################################################"
+echo "-----------  Customizations"
+echo "####################################################################"
+echo 'Enable click to minimize'
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 
 echo "####################################################################"
 echo "-----------  APT Clean"
