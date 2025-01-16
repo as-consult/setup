@@ -114,6 +114,7 @@ echo 'alias r-grep="grep -rin --exclude-dir={tmp,log,ourairports-data}"'  >> ~/.
 echo 'alias docked-rails-console="docker compose exec --user 1000 -it rails-app rails console"'  >> ~/.zshrc
 echo 'alias docked-rails-test="docker compose exec --user 1000 -it rails-app rails test"'  >> ~/.zshrc
 echo 'alias docked-rails-bash="docker compose exec --user 1000 -it rails-app bash"'  >> ~/.zshrc
+echo "alias lynx-ddg='lynx www.duckduckgo.com'" >> ~/.zshrc
 sleep 2
 
 echo "------------- Setup oh-my-zsh plugin"
