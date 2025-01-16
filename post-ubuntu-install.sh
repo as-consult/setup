@@ -6,7 +6,7 @@
 # /_/   \_\____/ 
 #
 # Date:	   30/09/2024
-# Update:  08/10/2024
+# Update:  16/01/2025
 # Title: Post installation script after Ubuntu-24.04.1-LTS fresh install
 # Download manually this file from https://github.com/as-consult/setup
 # make it executable and execute it.
@@ -232,3 +232,5 @@ sudo apt -y autoremove
   # Preferences/Themes/Icon Theme: Multicolor
 # DisplayLink for docking station
   # https://github.com/AdnanHodzic/displaylink-debian
+# Install terminal themes from: https://gogh-co.github.io/Gogh/
+  # bash -c  "$(wget -qO- https://git.io/vQgMr)" 
